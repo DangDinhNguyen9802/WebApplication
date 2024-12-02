@@ -4,6 +4,20 @@
 body {
   font-size: 14px;
 }
+/* ĐỊNH DẠNG LẠI CÁC DÒNG CÓ GẮN LINK*/
+.NoneUnderline{
+  text-decoration: none;
+}
+.TextColorWhite{
+  color:rgba(255,255,255);
+}
+.TextColorBlack{
+  color: rgba(0,0,0);
+}
+.TextColorRed{
+  color:rgb(249, 32, 32);
+}
+/***************************************/
 .v1_391 {
   width: 100%;
   height: 3598px;
