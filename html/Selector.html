@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Selector</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .cv-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cv-card {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .cv-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .cv-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .cv-card h2 {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .cv-card button {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #F92121;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .cv-card button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose Your CV Template</h1>
+        <div class="cv-grid">
+            <!-- Impact CV -->
+            <div class="cv-card" onclick="redirectTo('ImpactCV.html')">
+                <img src="https://www.cvtemplate.co.uk/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcv-template-impact.dfc42b6c.png&w=750&q=64" alt="Impact CV">
+                <h2>Impact CV</h2>
+                <button>Use CV</button>
+            </div>
+
+            <!-- Basic CV -->
+            <div class="cv-card" onclick="redirectTo('BasicCV.html')">
+                <img src="https://www.cvtemplate.co.uk/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcv-template-classic.9d1ec779.png&w=750&q=64" alt="Basic CV">
+                <h2>Basic CV</h2>
+                <button>Use CV</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Redirect to the selected CV page
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
