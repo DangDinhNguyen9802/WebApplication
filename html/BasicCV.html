@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #F6E9E9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin: 5px 0;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 10px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #e9ecef;
+        }
+
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-container input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            color: #343a40;
+            margin-bottom: 10px;
+        }
+
+        .section p,
+        .section ul {
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            margin-bottom: 5px;
+        }
+
+        .editable {
+            border: 1px dashed transparent;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .editable:focus {
+            outline: none;
+            background: #f1f3f5;
+        }
+
+        .font-selector {
+            margin-bottom: 20px;
+        }
+
+        .font-selector select {
+            font-size: 14px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+        }
+
+        .buttons-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .buttons-container button {
+            margin: 5px;
+            padding: 10px 15px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            margin: 15px;
+            background: #F92121;
+            color: white;
+            font-size: 16px; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #F7E0E0;
+        }
+
+        .feature-list {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 15px;
+        }
+
+        .feature-list button {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .feature-list button:hover {
+            background: #F7E0E0;
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container" id="cv">
+        <!-- Header -->
+        <div class="header">
+            <div class="avatar-container">
+                <img id="avatar-img" src="https://via.placeholder.com/100" alt="Avatar">
+                <input type="file" accept="image/*" onchange="changeAvatar(event)">
+            </div>
+            <h1 class="editable" contenteditable="true">Your Name</h1>
+            <p class="editable" contenteditable="true">Job Title</p>
+            <p class="editable" contenteditable="true">123 Your Street, Your City AB12 3CD</p>
+            <p class="editable" contenteditable="true">+84 123 456 789 | yourname@email.com</p>
+        </div>
+
+        <!-- Summary -->
+        <div class="section">
+            <h2>Summary</h2>
+            <p class="editable" contenteditable="true">
+                Click here to edit your professional summary. Provide an overview of your experience, qualifications, and skills.
+            </p>
+        </div>
+
+        <!-- Experience -->
+        <div class="section">
+            <h2>Experience</h2>
+            <ul class="editable" contenteditable="true">
+                <li><strong>Job Title</strong> | Company Name | Jan 2023 - Present</li>
+                <li>Describe your achievements and key responsibilities.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>EXPERIENCE</h2>
+            <div class="editable" contenteditable="true">
+                <p><strong>Job Title</strong> | Company | Jan 2024 - Present</p>
+                <p>Write about your role and key achievements.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>EDUCATION</h2>
+            <div class="editable" contenteditable="true">
+                <p><strong>Bachelor’s Degree</strong> | University Name | Jan 2023</p>
+                <p>Final Year Project: Study and Analysis of Subject.</p>
+            </div>
+            <div class="section" id="dynamic-sections"></div>
+        </div>
+    </div>
+
+    <!-- Font Selector -->
+    <div class="font-selector" style="text-align: center;">
+        <label for="font-select">Choose Font:</label>
+        <select id="font-select">
+            <option value="Arial">Arial</option>
+            <option value="'Times New Roman', serif">Times New Roman</option>
+            <option value="'Roboto', sans-serif">Roboto</option>
+            <option value="'Open Sans', sans-serif">Open Sans</option>
+        </select>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons-container">
+        <button class="btn" onclick="toggleFeatures()">Add Section</button>
+        <button class="btn" onclick="saveCV()">Save CV</button>
+        <button class="btn" onclick="downloadCV()">Download CV</button>
+    </div>
+    <div class="feature-list" id="feature-list">
+        <button onclick="addFeature('Hobby')">Hobby</button>
+        <button onclick="addFeature('Activities')">Activities</button>
+        <button onclick="addFeature('Project')">Project</button>
+        <button onclick="addFeature('Awards')">Awards</button>
+    </div>
+
+    <script>
+        // Change avatar dynamically
+        function changeAvatar(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('avatar-img').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function toggleFeatures() {
+            const featureList = document.getElementById('feature-list');
+            featureList.style.display = featureList.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function addFeature(title) {
+            const container = document.getElementById('dynamic-sections');
+            const section = document.createElement('div');
+            section.className = 'section';
+            section.innerHTML = `
+                <h2>${title}</h2>
+                <p class="editable" contenteditable="true">Click here to edit your ${title.toLowerCase()}.</p>
+            `;
+            container.appendChild(section);
+            toggleFeatures();
+        }
+
+
+        // Save CV to localStorage
+        function saveCV() {
+            const cvContent = document.getElementById('cv').innerHTML;
+
+            const cvData = {
+        title: 'Impact CV', 
+        template: 'ImpactCV.html', 
+        name: document.querySelector('h1').innerText,
+        jobTitle: document.querySelector('.contact p:nth-child(1)').innerText,
+        email: document.querySelector('.contact p:nth-child(3)').innerText,
+    };
+
+        const userCVs = JSON.parse(localStorage.getItem('userCVs')) || [];
+
+        userCVs.push(cvData);
+
+       localStorage.setItem('userCVs', JSON.stringify(userCVs));
+
+       alert('CV saved successfully!');
+}
+
+        // Load CV on page load
+        window.onload = function () {
+            const savedContent = localStorage.getItem('savedCV');
+            if (savedContent) {
+                document.getElementById('cv').innerHTML = savedContent;
+            }
+        };
+
+        // Download CV as a PDF
+        function downloadCV() {
+            const element = document.getElementById('cv');
+            const options = {
+                margin: 0.5,
+                filename: 'My_CV.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(element).set(options).save();
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</body>
+</html>
