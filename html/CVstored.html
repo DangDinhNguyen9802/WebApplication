@@ -94,10 +94,36 @@
             background: #F7E0E0;
         
         }
+        .search-bar-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+}
+
+        #searchBar {
+           width: 300px;
+           padding: 10px;
+           font-size: 16px;
+           border: 1px solid #ddd;
+           border-radius: 5px;
+}
+
+    
+
     </style>
 </head>
 <body>
     <h1>Your Saved CVs</h1>
+    <div class="search-bar-container">
+        <input
+            type="text"
+            id="searchBar"
+            placeholder="Search CV by name or title..."
+            oninput="searchCV()"
+        />
+    </div>
+    
     <div class="cv-list" id="cvList">
         
     </div>
@@ -109,6 +135,10 @@
         const renderCVs = () => {
             const cvContainer = document.getElementById('cvList');
             cvContainer.innerHTML = ''; 
+            if (cvList.length === 0) {
+               cvContainer.innerHTML = '<p>No CVs saved yet.</p>';
+               return;
+    }
 
             // Render each CV
             cvList.forEach((cv, index) => {

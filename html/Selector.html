@@ -75,9 +75,60 @@
         .cv-card button:hover {
             background: #0056b3;
         }
+        /* Container cho header */
+.header-bar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    background-color: #f4f4f9;
+}
+
+/* Nút "Go to Your CV Stored" */
+.go-to-cv {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hiệu ứng hover */
+.go-to-cv:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Mũi tên bên cạnh */
+.arrow {
+    font-size: 16px;
+    color: white;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Hiệu ứng hover cho mũi tên */
+.go-to-cv:hover .arrow {
+    margin-left: 8px;
+}
+
     </style>
 </head>
 <body>
+    <div class="header-bar">
+        <button class="go-to-cv" onclick="window.location.href='CVstored.html'">
+            Go to Your CV Stored 
+            <span class="arrow">&rarr;</span>
+        </button>
+    </div>
+    
     <div class="container">
         <h1>Choose Your CV Template</h1>
         <div class="cv-grid">
