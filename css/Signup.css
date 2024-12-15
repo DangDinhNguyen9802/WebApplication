@@ -21,9 +21,9 @@ body {
 /*******************HEADER*******************/
 /********************************************/
 
-.v22_303 {
+.HEADER {
   width: 100%;
-  height: 160px;
+  height: 100px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: relative;
@@ -34,15 +34,15 @@ body {
 .v22_304 {
   width: 95px;
   height: 53px;
-  background: url("../images/v22_304.png");
+  /*background: url("../images/v22_304.png");*/
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   margin: 45px;
   opacity: 1;
   position: absolute;
-  top: 75px;
-  left: 1202px;
+  top: 0px;
+  left: 1200px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -72,15 +72,15 @@ body {
   background-size: cover;
   opacity: 1;
   position: absolute;
-  top: 48px;
+  top: 0px;
   left: 3px;
   overflow: hidden;
 }
-.v22_332 {
+.Login_Button {
   width: 47px;
   color: rgba(255,77,77,1);
   position: absolute;
-  top: 63px;
+  top: 0px;
   left: 22px;
   font-family: Inter;
   font-weight: Medium;
@@ -88,7 +88,7 @@ body {
   opacity: 1;
   text-align: left;
 }
-.v22_1019 {
+.Logo_Header {
   width: 174px;
   height: 54px;
   background: url("../images/v22_1019.png");
@@ -97,7 +97,7 @@ body {
   background-size: cover;
   opacity: 1;
   position: absolute;
-  top: 66px;
+  top: 25px;
   left: 100px;
   overflow: hidden;
 }
@@ -105,7 +105,7 @@ body {
   width: 120px;
   color: rgba(0,0,0,1);
   position: absolute;
-  top: 7px;
+  top: 5px;
   left: 50px;
   font-family: Inter;
   font-weight: Medium;
@@ -159,13 +159,9 @@ body {
 /***************************************/
 /*BODY*/
 /***************************************/
-/***************************************/
-/*FOOTER*/
-/***************************************/
-
-.v22_251 {
+.BODY {
   width: 100%;
-  height: 1183px;
+  height: 700px;
   background: rgba(244,244,244,1);
   opacity: 1;
   position: relative;
@@ -173,7 +169,7 @@ body {
   left: 0px;
   overflow: hidden;
 }
-.v22_252 {
+.Plane_Gif {
   width: 100%;
   height: 401px;
   background: url("../images/v22_252.png");
@@ -182,30 +178,30 @@ body {
   background-size: cover;
   opacity: 1;
   position: absolute;
-  top: 695px;
-  left: 100px;
+  top: 200px;
+  left:0px;
   transform: rotate(-25deg);
   overflow: hidden;
 }
-.v22_253 {
+.BODY_CONTENT {
   width: 514px;
   height: 531px;
-  background: url("../images/v22_253.png");
+  /*background: url("../images/v22_253.png");*/
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   margin: 24px;
   opacity: 1;
   position: absolute;
-  top: 257px;
-  left: 408px;
+  top: 25px;
+  left: 500px;
   overflow: hidden;
 }
 .v22_254 {
-  width: 514px;
+  width: 515px;
   color: rgba(0,0,0,1);
   position: absolute;
-  top: 9px;
+  top: 30px;
   left: 0px;
   font-family: Inter;
   font-weight: Semi Bold;
@@ -213,9 +209,10 @@ body {
   opacity: 1;
   text-align: center;
 }
+/*Name*/
 .v22_259 {
-  width: 514px;
-  height: 80px;
+  width: 550px;
+  height: 100px;
   background: url("../images/v22_259.png");
   background-repeat: no-repeat;
   background-position: center center;
@@ -223,12 +220,12 @@ body {
   margin: 8px;
   opacity: 1;
   position: absolute;
-  top: 81px;
+  top: 80px;
   left: 0px;
   overflow: hidden;
 }
 .v22_260 {
-  width: 514px;
+  width: 550px;
   color: rgba(0,0,0,1);
   position: relative;
   top: 0px;
@@ -239,7 +236,7 @@ body {
   opacity: 1;
   text-align: left;
 }
-.v22_261 {
+/*.v22_261 {
   width: 514px;
   height: 48px;
   background: rgba(255,255,255,1);
@@ -255,35 +252,39 @@ body {
   border-bottom-right-radius: 8px;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05000000074505806);
   overflow: hidden;
-}
+}*/
 .v22_262 {
-  width: 482px;
+  width: 500px;
+  height: 50px;
   color: rgba(130,130,130,1);
+  Border: 1px solid rgba(0,0,0,0);
   position: absolute;
-  top: 12px;
-  left: 16px;
+  top: 30px;
+  left: 3px;
   font-family: Inter;
   font-weight: Medium;
   font-size: 16px;
   opacity: 1;
   text-align: left;
+  border-radius: 8px;
 }
+/*EMAIL*/
 .v22_255 {
-  width: 514px;
-  height: 80px;
-  background: url("../images/v22_255.png");
+  width: 550px;
+  height: 100px;
+  /*background: url("../images/v22_255.png");*/
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   margin: 8px;
   opacity: 1;
   position: absolute;
-  top: 185px;
+  top: 180px;
   left: 0px;
   overflow: hidden;
 }
 .v22_256 {
-  width: 514px;
+  width: 550px;
   color: rgba(0,0,0,1);
   position: relative;
   top: 0px;
@@ -294,6 +295,7 @@ body {
   opacity: 1;
   text-align: left;
 }
+/*
 .v22_257 {
   width: 514px;
   height: 48px;
@@ -311,21 +313,26 @@ body {
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05000000074505806);
   overflow: hidden;
 }
+*/
 .v22_258 {
-  width: 482px;
+  width: 500px;
+  height: 50px;
   color: rgba(130,130,130,1);
   position: absolute;
-  top: 12px;
-  left: 16px;
+  top: 30px;
+  left: 3px;
+  border: 1px solid rgba(0,0,0,0);
   font-family: Inter;
   font-weight: Medium;
   font-size: 16px;
   opacity: 1;
   text-align: left;
+  border-radius: 8px
 }
+/*PASSWORD*/
 .v22_333 {
-  width: 514px;
-  height: 80px;
+  width: 550px;
+  height: 100px;
   background: url("../images/v22_333.png");
   background-repeat: no-repeat;
   background-position: center center;
@@ -333,12 +340,12 @@ body {
   margin: 8px;
   opacity: 1;
   position: absolute;
-  top: 289px;
+  top: 280px;
   left: 0px;
   overflow: hidden;
 }
 .v22_334 {
-  width: 514px;
+  width: 550px;
   color: rgba(0,0,0,1);
   position: relative;
   top: 0px;
@@ -349,6 +356,7 @@ body {
   opacity: 1;
   text-align: left;
 }
+/*
 .v22_335 {
   width: 514px;
   height: 48px;
@@ -365,22 +373,26 @@ body {
   border-bottom-right-radius: 8px;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05000000074505806);
   overflow: hidden;
-}
+}*/
 .v22_336 {
-  width: 482px;
+  width: 500px;
+  height: 50px;
   color: rgba(130,130,130,1);
+  border:1px rgba(0,0,0,0);
   position: absolute;
-  top: 12px;
-  left: 16px;
+  top: 30px;
+  left: 3px;
   font-family: Inter;
   font-weight: Medium;
   font-size: 16px;
   opacity: 1;
   text-align: left;
+  border-radius: 8px;
 }
+/*Confirm Password*/
 .v22_338 {
-  width: 514px;
-  height: 80px;
+  width: 550px;
+  height: 100px;
   background: url("../images/v22_338.png");
   background-repeat: no-repeat;
   background-position: center center;
@@ -388,12 +400,12 @@ body {
   margin: 8px;
   opacity: 1;
   position: absolute;
-  top: 393px;
+  top: 380px;
   left: 0px;
   overflow: hidden;
 }
 .v22_339 {
-  width: 514px;
+  width: 550px;
   color: rgba(0,0,0,1);
   position: relative;
   top: 0px;
@@ -404,6 +416,7 @@ body {
   opacity: 1;
   text-align: left;
 }
+/*
 .v22_340 {
   width: 514px;
   height: 48px;
@@ -421,40 +434,47 @@ body {
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05000000074505806);
   overflow: hidden;
 }
+  */
 .v22_341 {
-  width: 482px;
+  width: 500px;
+  height:50px;
   color: rgba(130,130,130,1);
+  border: 1px rgba(0,0,0,0);
   position: absolute;
-  top: 12px;
-  left: 16px;
+  top: 30px;
+  left: 3px;
   font-family: Inter;
   font-weight: Medium;
   font-size: 16px;
   opacity: 1;
   text-align: left;
+  border-radius:8px;
+
 }
+
 .v22_263 {
   width: 247px;
-  color: url("../images/v22_263.png");
+  /*color: url("../images/v22_263.png");*/
   position: absolute;
-  top: 497px;
-  left: 0px;
+  top: 480px;
+  left: 5px;
   font-family: Inter;
   font-weight: Medium;
   font-size: 16px;
   opacity: 1;
   text-align: left;
+  
 }
-.v22_264 {
+.Register_Button {
   width: 515px;
-  height: 52px;
+  height: 50px;
   background: rgba(247,224,224,1);
   padding: 14px 24px;
   margin: 8px;
   opacity: 1;
   position: absolute;
-  top: 788px;
-  left: 409px;
+  top: 550px;
+  left: 520px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -462,11 +482,11 @@ body {
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05000000074505806);
   overflow: hidden;
 }
-.v22_265 {
+.Register_Text {
   width: 64px;
   color: rgba(255,77,77,1);
   position: absolute;
-  top: 14px;
+  top: 15px;
   left: 225px;
   font-family: Inter;
   font-weight: Medium;
@@ -474,14 +494,19 @@ body {
   opacity: 1;
   text-align: left;
 }
-.v40_1483 {
+/***************************************/
+/*FOOTER*/
+/***************************************/
+
+
+.FOOTER {
   width: 100%;
   height: 264px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  top: 919px;
-  left: 20px;
+  top: 750px;
+  left: 0px;
   overflow: hidden;
 }
 .v40_1484 {
@@ -623,15 +648,15 @@ body {
 .v40_1495 {
   width: 184px;
   height: 40px;
-  background: url("../images/v40_1495.png");
+  /*background: url("../images/v40_1495.png");*/
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   margin: 8px;
   opacity: 1;
   position: absolute;
-  top: 176px;
-  left: 80px;
+  top: 10px;
+  left: 100px;
   overflow: hidden;
 }
 .v40_1496 {
@@ -656,7 +681,7 @@ body {
 .v40_1497 {
   width: 24px;
   height: 24px;
-  background: rgba(255,255,255,1);
+  background: rgb(255, 0, 0);
   opacity: 1;
   position: absolute;
   top: 8px;
@@ -688,16 +713,16 @@ body {
 .v40_1502 {
   width: 24px;
   height: 24px;
-  background: rgba(255,255,255,1);
+  background: rgb(255, 255, 255);
   opacity: 1;
   position: absolute;
   top: 8px;
   left: 8px;
   overflow: hidden;
 }
-.name {
+/*.name {
   color: #fff;
-}
+}*/
 .v40_1506 {
   width: 40px;
   height: 40px;
@@ -727,9 +752,11 @@ body {
   left: 8px;
   overflow: hidden;
 }
+/*
 .name {
   color: #fff;
 }
+  */
 .v40_1511 {
   width: 40px;
   height: 40px;
@@ -759,12 +786,13 @@ body {
   left: 8px;
   overflow: hidden;
 }
+/*
 .name {
   color: #fff;
 }
 .name {
   color: #fff;
-}
+}*/
 .v40_1518 {
   width: 50px;
   height: 45px;
@@ -781,7 +809,7 @@ body {
 .v40_1519 {
   width: 42px;
   height: 38px;
-  background: rgba(217,217,217,1);
+  background: rgb(179, 45, 45);
   opacity: 1;
   position: absolute;
   top: 3px;
@@ -808,7 +836,7 @@ body {
   left: 22px;
   border-radius: 50%;
 }
-
+/*
 .name {
   color: #fff;
 }
@@ -816,5 +844,6 @@ body {
   color: #fff;
 }
 .name {
-  color: #fff;
+  color: #ff0000;
 }
+  */
