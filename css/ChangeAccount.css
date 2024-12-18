@@ -278,7 +278,7 @@ body {
 .v37_959 {
   width: 100px;
   height: 100px;
-  background: url(../images/iconoir_profile-circle.png);
+  background: url(../images/icon-profile.png);
   opacity: 1;
   position: absolute;
   top: 20px;
@@ -538,16 +538,23 @@ body {
   overflow: hidden;
 }
 .v37_967 {
-  width: 56px;
-  color: rgba(255,255,255,1);
-  position: absolute;
-  top: 10px;
-  left: 32px;
-  font-family: Inter;
-  font-weight: Medium;
-  font-size: 24px;
-  opacity: 1;
-  text-align: left;
+  font-size: 30px;
+  background-color: red;
+  color: white;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  margin-top: 310px;
+  margin-left: 400px;
+}
+.v37_967:hover {
+  background-color: darkred;
 }
 .v37_1061 {
   width: 35px;
@@ -559,24 +566,7 @@ body {
   left: 530px;
   overflow: hidden;
 }
-.v37_1062 {
-  width: 35px;
-  height: 17px;
-  background: rgba(236,28,36,1);
-  opacity: 1;
-  position: absolute;
-  top: 4px;
-  left: 0px;
-}
-.v37_1063 {
-  width: 14px;
-  height: 10px;
-  background: rgba(249,203,56,1);
-  opacity: 1;
-  position: absolute;
-  top: 7px;
-  left: 10px;
-}
+
 .name {
   color: #fff;
 }
