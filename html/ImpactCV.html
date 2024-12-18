@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="../css/HomePage.css" rel="stylesheet" />
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -24,38 +26,45 @@
 
         /* Left side - Profile section */
         .cv-left {
-            width: 35%; 
-            background: #2c3e50;
-            color: white;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            width: 30%;
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 40px 30px;
         }
-
         .profile-image-container {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 150px;
-            width: 150px; 
-            margin: 30px auto;
-            border-radius: 50%;
-            background: #34495e;
-            overflow: hidden;
+            margin-bottom: 20px;
         }
-
         .profile-image-container img {
-            width: 100%;
-            height: 100%;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
             object-fit: cover;
+            border: 4px solid #fff;
+        }
+        .profile-name {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .section-header {
+            font-size: 18px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #bdc3c7;
+            margin: 20px 0 10px;
+            padding-bottom: 5px;
+        }
+        .cv-left ul {
+            list-style: none;
+            padding: 0;
+        }
+        .cv-left li {
+            margin-bottom: 10px;
+            font-size: 14px;
         }
 
-        .profile-image-container span {
-            color: white;
-            font-size: 36px;
-            font-weight: bold;
-        }
 
         h2 {
             font-size: 20px; 
@@ -74,57 +83,46 @@
             font-size: 16px; 
         }
 
-        .upload-photo-btn {
-            margin-top: 15px;
-            padding: 8px 15px;
-            background: #6936f4;
-            color: white;
-            border-radius: 5px;
-            text-align: center;
-            cursor: pointer;
-        }
-
         /* Right side - Content */
         .cv-right {
-            width: 65%; 
-            padding: 40px; 
+            width: 70%;
+            padding: 40px;
         }
-
-        .cv-right h1 {
-            font-size: 32px; 
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .cv-right .contact {
-            margin-bottom: 30px;
-            line-height: 1.8; 
-        }
-
-        .cv-right .contact p {
-            margin: 8px 0;
-            font-size: 16px; 
-        }
-
-        .section {
-            margin-bottom: 30px; 
-        }
-
-        .section h2 {
+        .cv-right h2 {
             font-size: 22px;
+            text-transform: uppercase;
             color: #2c3e50;
+            margin-bottom: 10px;
         }
-
+        .cv-right .section {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        .cv-right p {
+            font-size: 16px;
+            color: #555;
+        }
+        .cv-right .experience-header, .cv-right .education-header {
+            position: relative;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .cv-right .experience-header::before, .cv-right .education-header::before {
+            content: '\25CB';
+            color: #2c3e50;
+            position: absolute;
+            left: -25px;
+            font-size: 20px;
+        }
+        .divider {
+            height: 1px;
+            background: #e5e5e5;
+            margin: 20px 0;
+        }
         .editable {
-            border: 1px dashed transparent;
-            cursor: pointer;
-            font-size: 16px; 
-            line-height: 1.8; 
-        }
-
-        .editable:focus {
+            border: none;
             outline: none;
-            background: #eef;
+            cursor: text;
         }
 
         
@@ -179,12 +177,13 @@
     display: flex;
     justify-content: flex-end;
     padding: 10px;
-    background-color: #f4f4f9;
+    background-color: #F6E9E9;
 }
 
 /* Nút "Go to Your CV Stored" */
 .go-to-cv {
     padding: 10px 20px;
+    margin-top: 120px;
     background-color: #007bff;
     color: white;
     border: none;
@@ -215,9 +214,103 @@
 .go-to-cv:hover .arrow {
     margin-left: 8px;
 }
+.header-info {
+    text-align: center; /* Căn giữa thông tin liên hệ */
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.job-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-transform: uppercase;
+}
+
+.contact-info {
+    font-size: 16px;
+    color: #555;
+}
+
+.profile-pic {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Biến hình ảnh thành hình tròn */
+    overflow: hidden;
+    cursor: pointer;
+    background: #ddd; /* Màu nền khi chưa có ảnh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-pic::before {
+    content: "Upload Photo";
+    position: absolute;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    line-height: 150px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-pic:hover::before {
+    opacity: 1; /* Hiện chữ Upload khi hover */
+}
+
+
+.cv-container .header-info {
+    text-align: left; /* Căn lề trái */
+    line-height: 1.5;
+    font-size: 16px;
+    color: #2c3e50;
+}
+
+.cv-container .job-title {
+    font-weight: bold;
+    font-size: 20px;
+    color: #34495e;
+}
+
+
     </style>
 </head>
 <body>
+    <div class="v1_465">
+        <div class="v1_466">    
+            <div class="v1_470">
+                <span class="v1_471"><a href="./Login.html" class="NoneUnderline TextColorBlack">Log in</a></span>
+            </div>
+            <div class="v9_6">
+                <span class="v9_7"><a href="./Signup.html" class="NoneUnderline TextColorBlack">Sign up</a></span>
+            </div>
+        </div>
+        <div class="v67_357">
+            <div class="v22_1013">
+                <div class="v67_355">
+                    <div class="v10_208">
+                        <div class="v9_2"></div>
+                        <div class="v9_4"></div>
+                        <div class="v9_3"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="v67_356">
+                <span class="v1_472">OnTop</span>
+            </div>
+        </div>
+    </div>
     <div class="header-bar">
         <button class="go-to-cv" onclick="window.location.href='CVstored.html'">
             Go to Your CV Stored 
@@ -227,60 +320,83 @@
     <div class="cv-container" id="cv">
         <!-- Left Side -->
         <div class="cv-left">
-            <div class="profile-image-container" id="profile-container">
-                <span id="profile-initials">YN</span>
+            <div class="profile-pic">
+                <label for="file-input">
+                    <img src="default-image.jpg" alt="Profile Picture" class="editable" id="profile-img" />
+                </label>
+                <input type="file" id="file-input" style="display: none;" accept="image/*" onchange="loadPhoto(event)"/>
             </div>
-            <input type="file" id="upload-photo" accept="image/*" style="display:none;" onchange="loadPhoto(event)">
-            <label for="upload-photo" class="upload-photo-btn">Upload Photo</label>
+    
+            <div class="profile-name editable" contenteditable="true">Your Name</div>
+            <div class="section-header">Skills</div>
+            <ul class="editable" contenteditable="true">
+                <li>Microsoft Word - Expert</li>
+                <li>Microsoft PowerPoint - Advanced</li>
+            </ul>
+            <div class="section-header">Languages</div>
+            <ul class="editable" contenteditable="true">
+                <li>French - Fluent</li>
+                <li>Mandarin - Proficient</li>
+            </ul>
+            <div class="section-header">Web Social</div>
+            <ul class="editable" contenteditable="true">
+                <li>Twitter</li>
+                <li>twitter.com/yourname</li>
+            </ul>
 
-            <div>
-                <h2>SKILLS</h2>
-                <ul class="editable" contenteditable="true">
-                    <li>Microsoft Word - Expert</li>
-                    <li>Microsoft PowerPoint - Advanced</li>
-                </ul>
-                <h2>LANGUAGES</h2>
-                <ul class="editable" contenteditable="true">
-                    <li>French - Fluent</li>
-                    <li>English - Proficient</li>
-                </ul>
-            </div>
+            <ul class="editable" contenteditable="true">
+                <li>LinkedIn</li>
+                <li>linkedin.com/in/yourname</li>
+            </ul>
+
+            <div class="section-header">References</div>
+            <ul class="editable" contenteditable="true">
+                <li>Available on request.</li>
+            </ul>
         </div>
-
+    
         <!-- Right Side -->
         <div class="cv-right">
-            <h1 class="editable" contenteditable="true">Your Name</h1>
-            <div class="contact editable" contenteditable="true">
-                <p>Job Title</p>
-                <p>123 Your Street, Your City, AB12 3CD</p>
-                <p>+84 123 456 789 | yourname@email.com</p>
+            <!-- Job Title and Contact Section -->
+            <div class="header-info">
+                <h1 class="job-title editable" contenteditable="true">Job Title</h1>
+                <p class="editable contact-info" contenteditable="true">123 Your Street, Your City, AB12 3CD</p>
+                <p class="editable contact-info" contenteditable="true">+84 123 456 789 | yourname@email.com</p>
             </div>
-
+    
+            <div class="divider"></div>
+    
+            <!-- Summary Section -->
             <div class="section">
-                <h2>SUMMARY</h2>
+                <h2>Summary</h2>
                 <p class="editable" contenteditable="true">
-                    Click here to edit your professional summary.
+                    Write a brief summary of your experience, qualifications, and skills.
                 </p>
             </div>
-
+    
+            <!-- Experience Section -->
             <div class="section">
-                <h2>EXPERIENCE</h2>
-                <div class="editable" contenteditable="true">
-                    <p><strong>Job Title</strong> | Company | Jan 2024 - Present</p>
-                    <p>Write about your role and key achievements.</p>
-                </div>
+                <h2>Experience</h2>
+                <div class="experience-header editable" contenteditable="true">Job Title | Company | Jan 2023 - Present</div>
+                <p class="editable" contenteditable="true">Include key achievements, tasks, and projects here.</p>
+                <div class="divider"></div>
+                <div class="experience-header editable" contenteditable="true">Job Title | Company | Jan 2022 - Jan 2023</div>
+                <p class="editable" contenteditable="true">Provide evidence to support any claims you make.</p>
             </div>
-
+            
+            <!-- Education Section -->
             <div class="section">
-                <h2>EDUCATION</h2>
-                <div class="editable" contenteditable="true">
-                    <p><strong>Bachelor’s Degree</strong> | University Name | Jan 2023</p>
-                    <p>Final Year Project: Study and Analysis of Subject.</p>
-                </div>
-                <div class="section" id="dynamic-sections"></div>
+                <h2>Education</h2>
+                <div class="education-header editable" contenteditable="true">BSc Degree Title (2:1) | University Name | Jan 2023</div>
+                <p class="editable" contenteditable="true">Final year project: 'Study and Analysis of Subject'.</p>
+                <div class="divider"></div>
+                <div class="education-header editable" contenteditable="true">GCSE and A Level | School Name | Jan 2021</div>
+                <p class="editable" contenteditable="true">Include relevant academic achievements.</p>
             </div>
+            <div class="section" id="dynamic-sections"></div>
         </div>
     </div>
+    
 
         <div class="font-selector" style="text-align: center;">
         <label for="font-select">Choose Font:</label>
@@ -337,29 +453,34 @@
 
         // Save CV to local storage
         function saveCV() {
-            const cvContent = document.getElementById('cv').innerHTML;
+    const cvContent = document.getElementById('cv').innerHTML;
 
-            const cvName = prompt("Enter a name for your CV:"); // Hỏi tên CV
-           if (!cvName) {
-              alert("CV name cannot be empty!");
-              return;
+    const cvName = prompt("Enter a name for your CV:"); // Ask for the CV name
+    if (!cvName) {
+        alert("CV name cannot be empty!");
+        return;
     }
 
-            const cvData = {
-        title: 'Impact CV', 
-        template: 'ImpactCV.html', 
-        name: document.querySelector('h1').innerText,
-        jobTitle: document.querySelector('.contact p:nth-child(1)').innerText,
-        email: document.querySelector('.contact p:nth-child(3)').innerText,
+    // Collecting necessary CV data
+    const cvData = {
+        title: cvName, // Save the entered name as the title
+        template: 'ImpactCV.html',
+        name: document.querySelector('.profile-name').innerText, // Name from the profile section
+        jobTitle: document.querySelector('.job-title').innerText, // Job title from the CV
+        email: document.querySelector('.contact-info:nth-child(3)').innerText, // Email from the contact section
+        cvContent: cvContent // Full content of the CV
     };
 
-        const userCVs = JSON.parse(localStorage.getItem('userCVs')) || [];
+    // Retrieve any existing CVs from localStorage
+    const userCVs = JSON.parse(localStorage.getItem('userCVs')) || [];
 
-        userCVs.push(cvData);
+    // Add the new CV data to the list
+    userCVs.push(cvData);
 
-       localStorage.setItem('userCVs', JSON.stringify(userCVs));
+    // Save the updated CV list to localStorage
+    localStorage.setItem('userCVs', JSON.stringify(userCVs));
 
-       alert('CV saved successfully!');
+    alert('CV saved successfully!');
 }
         window.onload = function () {
             const savedCV = localStorage.getItem('cvData');
@@ -381,6 +502,17 @@
 
             html2pdf().from(element).set(opt).save();
         }
+        document.getElementById("font-select").addEventListener("change", function () {
+        const selectedFont = this.value; 
+        const cvContent = document.querySelector(".cv-container"); 
+
+        if (cvContent) {
+            cvContent.style.fontFamily = selectedFont;
+        }
+
+        console.log("Font changed to:", selectedFont);
+    });
+
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </body>

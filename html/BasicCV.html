@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="../css/HomePage.css" rel="stylesheet" />
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -172,12 +174,13 @@
     display: flex;
     justify-content: flex-end;
     padding: 10px;
-    background-color: #f4f4f9;
+    background-color: #F6E9E9;
 }
 
 /* Nút "Go to Your CV Stored" */
 .go-to-cv {
     padding: 10px 20px;
+    margin-top: 120px;
     background-color: #007bff;
     color: white;
     border: none;
@@ -211,6 +214,30 @@
     </style>
 </head>
 <body>
+    <div class="v1_465">
+        <div class="v1_466">    
+            <div class="v1_470">
+                <span class="v1_471"><a href="./Login.html" class="NoneUnderline TextColorBlack">Log in</a></span>
+            </div>
+            <div class="v9_6">
+                <span class="v9_7"><a href="./Signup.html" class="NoneUnderline TextColorBlack">Sign up</a></span>
+            </div>
+        </div>
+        <div class="v67_357">
+            <div class="v22_1013">
+                <div class="v67_355">
+                    <div class="v10_208">
+                        <div class="v9_2"></div>
+                        <div class="v9_4"></div>
+                        <div class="v9_3"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="v67_356">
+                <span class="v1_472">OnTop</span>
+            </div>
+        </div>
+    </div>
     <div class="header-bar">
         <button class="go-to-cv" onclick="window.location.href='CVstored.html'">
             Go to Your CV Stored 
@@ -247,10 +274,10 @@
             </ul>
         </div>
         <div class="section">
-            <h2>EXPERIENCE</h2>
+            <h2>Education</h2>
             <div class="editable" contenteditable="true">
-                <p><strong>Job Title</strong> | Company | Jan 2024 - Present</p>
-                <p>Write about your role and key achievements.</p>
+                <p><strong>Bachelor’s Degree</strong> | University Name | Jan 2021 - Present</p>
+                <p>Final Year Project: Study and Analysis of Subject.</p>
             </div>
         </div>
 
@@ -367,6 +394,18 @@
             };
             html2pdf().from(element).set(options).save();
         }
+
+    document.getElementById("font-select").addEventListener("change", function () {
+        const selectedFont = this.value; 
+        const cvContent = document.querySelector(".cv-container"); 
+
+        if (cvContent) {
+            cvContent.style.fontFamily = selectedFont;
+        }
+
+        console.log("Font changed to:", selectedFont);
+    });
+
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </body>

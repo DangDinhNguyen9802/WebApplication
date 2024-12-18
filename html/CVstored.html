@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your CVs</title>
+    <link href="../css/HomePage.css" rel="stylesheet" />
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -16,6 +17,7 @@
         h1 {
             font-size: 28px;
             margin-bottom: 20px;
+            margin-top: 140px;
             color: #333;
         }
 
@@ -95,6 +97,7 @@
         
         }
         .search-bar-container {
+            margin-top: 30px;
             width: 100%;
             display: flex;
             justify-content: flex-end;
@@ -114,6 +117,30 @@
     </style>
 </head>
 <body>
+    <div class="v1_465">
+        <div class="v1_466">    
+            <div class="v1_470">
+                <span class="v1_471"><a href="./Login.html" class="NoneUnderline TextColorBlack">Log in</a></span>
+            </div>
+            <div class="v9_6">
+                <span class="v9_7"><a href="./Signup.html" class="NoneUnderline TextColorBlack">Sign up</a></span>
+            </div>
+        </div>
+        <div class="v67_357">
+            <div class="v22_1013">
+                <div class="v67_355">
+                    <div class="v10_208">
+                        <div class="v9_2"></div>
+                        <div class="v9_4"></div>
+                        <div class="v9_3"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="v67_356">
+                <span class="v1_472">OnTop</span>
+            </div>
+        </div>
+    </div>
     <h1>Your Saved CVs</h1>
     <div class="search-bar-container">
         <input
@@ -130,51 +157,86 @@
 
     <script>
        
-        const cvList = JSON.parse(localStorage.getItem('userCVs')) || [];
+       const cvList = JSON.parse(localStorage.getItem('userCVs')) || [];
 
-        const renderCVs = () => {
-            const cvContainer = document.getElementById('cvList');
-            cvContainer.innerHTML = ''; 
-            if (cvList.length === 0) {
-               cvContainer.innerHTML = '<p>No CVs saved yet.</p>';
-               return;
+// Function to render the CVs
+const renderCVs = () => {
+    const cvContainer = document.getElementById('cvList');
+    cvContainer.innerHTML = ''; // Clear existing content
+
+    if (cvList.length === 0) {
+        cvContainer.innerHTML = '<p>No CVs saved yet.</p>';
+        return;
     }
 
-            // Render each CV
-            cvList.forEach((cv, index) => {
-                const cvItem = document.createElement('div');
-                cvItem.className = 'cv-item';
-                cvItem.innerHTML = `
-                    <div class="cv-header">${cv.title}</div>
-                    <div class="cv-content">
-                        <p><strong>Name:</strong> ${cv.name}</p>
-                        <p><strong>Job Title:</strong> ${cv.jobTitle}</p>
-                        <p><strong>Email:</strong> ${cv.email}</p>
-                    </div>
-                    <div class="cv-actions">
-                        <button class="edit-btn" onclick="editCV(${index})">Edit</button>
-                        <button class="delete-btn" onclick="deleteCV(${index})">Delete</button>
-                    </div>
-                `;
-                cvContainer.appendChild(cvItem);
-            });
-        };
+    // Render each CV
+    cvList.forEach((cv, index) => {
+        const cvItem = document.createElement('div');
+        cvItem.className = 'cv-item';
+        cvItem.innerHTML = `
+            <div class="cv-header">${cv.title}</div>
+            <div class="cv-content">
+                <p><strong>Name:</strong> ${cv.name}</p>
+                <p><strong>Job Title:</strong> ${cv.jobTitle}</p>
+                <p><strong>Email:</strong> ${cv.email}</p>
+            </div>
+            <div class="cv-actions">
+                <button class="edit-btn" onclick="editCV(${index})">Edit</button>
+                <button class="delete-btn" onclick="deleteCV(${index})">Delete</button>
+            </div>
+        `;
+        cvContainer.appendChild(cvItem);
+    });
+};
 
-        const editCV = (index) => {
-            
-            localStorage.setItem('editCV', JSON.stringify(cvList[index]));
-            window.location.href = cvList[index].template;
-        };
+// Function to search CVs by name or job title
+const searchCV = () => {
+    const searchQuery = document.getElementById('searchBar').value.toLowerCase();
 
-        const deleteCV = (index) => {
-            
-            cvList.splice(index, 1);
-            localStorage.setItem('userCVs', JSON.stringify(cvList));
-            renderCVs();
-        };
+    // Filter CVs based on search query
+    const filteredCVs = cvList.filter(cv => 
+        cv.title.toLowerCase().includes(searchQuery) || 
+        cv.name.toLowerCase().includes(searchQuery) ||
+        cv.jobTitle.toLowerCase().includes(searchQuery)
+    );
 
-        
-        renderCVs();
+    // Render filtered CVs
+    renderFilteredCVs(filteredCVs);
+};
+
+// Function to render filtered CVs (for search functionality)
+const renderFilteredCVs = (filteredCVs) => {
+    const cvContainer = document.getElementById('cvList');
+    cvContainer.innerHTML = ''; // Clear existing content
+
+    if (filteredCVs.length === 0) {
+        cvContainer.innerHTML = '<p>No matching CVs found.</p>';
+        return;
+    }
+
+    // Render each filtered CV
+    filteredCVs.forEach((cv, index) => {
+        const cvItem = document.createElement('div');
+        cvItem.className = 'cv-item';
+        cvItem.innerHTML = `
+            <div class="cv-header">${cv.title}</div>
+            <div class="cv-content">
+                <p><strong>Name:</strong> ${cv.name}</p>
+                <p><strong>Job Title:</strong> ${cv.jobTitle}</p>
+                <p><strong>Email:</strong> ${cv.email}</p>
+            </div>
+            <div class="cv-actions">
+                <button class="edit-btn" onclick="editCV(${index})">Edit</button>
+                <button class="delete-btn" onclick="deleteCV(${index})">Delete</button>
+            </div>
+        `;
+        cvContainer.appendChild(cvItem);
+    });
+};
+
+document.getElementById("searchBar").addEventListener("input", searchCV);
+
+renderCVs();
     </script>
 </body>
 </html>
