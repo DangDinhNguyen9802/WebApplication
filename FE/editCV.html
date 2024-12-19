@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Edit Your CV</title>
+  </head>
+  <body class="bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center">
+      <div class="bg-white p-8 rounded-lg shadow-md w-96">
+        <h2 class="text-2xl font-bold mb-4 text-center">Edit Your CV</h2>
+        <form id="cv-form">
+          <div class="mb-4">
+            <label for="avatar" class="block text-gray-700 font-medium mb-2">
+              Avatar (Image URL)
+            </label>
+            <input
+              type="url"
+              id="avatar"
+              name="avatar"
+              class="border border-gray-400 p-2 w-full rounded-md"
+            />
+            <label for="full-name" class="block text-gray-700 font-medium mb-2"
+              >Full Name</label
+            >
+            <input
+              type="text"
+              id="full-name"
+              name="full-name"
+              class="border border-gray-400 p-2 w-full rounded-md"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="job-title" class="block text-gray-700 font-medium mb-2"
+              >Job Title</label
+            >
+            <input
+              type="text"
+              id="job-title"
+              name="job-title"
+              class="border border-gray-400 p-2 w-full rounded-md"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="phone" class="block text-gray-700 font-medium mb-2"
+              >Phone</label
+            >
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="border border-gray-400 p-2 w-full rounded-md"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="email" class="block text-gray-700 font-medium mb-2"
+              >Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="border border-gray-400 p-2 w-full rounded-md"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="address" class="block text-gray-700 font-medium mb-2"
+              >Address</label
+            >
+            <input
+              type="text"
+              id="address"
+              name="address"
+              class="border border-gray-400 p-2 w-full rounded-md"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="summary" class="block text-gray-700 font-medium mb-2"
+              >Summary</label
+            >
+            <textarea
+              id="summary"
+              name="summary"
+              class="border border-gray-400 p-2 w-full rounded-md"
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="mb-4">
+            <label
+              for="social-links"
+              class="block text-gray-700 font-medium mb-2"
+              >Social Links (comma-separated)</label
+            >
+            <input
+              type="text"
+              id="social-links"
+              name="social-links"
+              class="border border-gray-400 p-2 w-full rounded-md"
+            />
+          </div>
+          <div class="mb-4">
+            <label for="website" class="block text-gray-700 font-medium mb-2"
+              >Website</label
+            >
+            <input
+              type="url"
+              id="website"
+              name="website"
+              class="border border-gray-400 p-2 w-full rounded-md"
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              for="employment-history"
+              class="block text-gray-700 font-medium mb-2"
+              >Employment History</label
+            >
+            <textarea
+              id="employment-history"
+              name="employment-history"
+              class="border border-gray-400 p-2 w-full rounded-md"
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="mb-4">
+            <label for="details" class="block text-gray-700 font-medium mb-2"
+              >Details (e.g., Birth Date, Gender, etc.)</label
+            >
+            <textarea
+              id="details"
+              name="details"
+              class="border border-gray-400 p-2 w-full rounded-md"
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="mb-4">
+            <label for="skills" class="block text-gray-700 font-medium mb-2"
+              >Skills (comma-separated)</label
+            >
+            <input
+              type="text"
+              id="skills"
+              name="skills"
+              class="border border-gray-400 p-2 w-full rounded-md"
+            />
+          </div>
+          <div class="mb-4">
+            <label for="languages" class="block text-gray-700 font-medium mb-2"
+              >Languages (comma-separated)</label
+            >
+            <input
+              type="text"
+              id="languages"
+              name="languages"
+              class="border border-gray-400 p-2 w-full rounded-md"
+            />
+          </div>
+          <div class="mb-4">
+            <label for="education" class="block text-gray-700 font-medium mb-2"
+              >Education</label
+            >
+            <textarea
+              id="education"
+              name="education"
+              class="border border-gray-400 p-2 w-full rounded-md"
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="mb-4">
+            <label
+              for="certificates"
+              class="block text-gray-700 font-medium mb-2"
+              >Certificates (comma-separated)</label
+            >
+            <input
+              type="text"
+              id="certificates"
+              name="certificates"
+              class="border border-gray-400 p-2 w-full rounded-md"
+            />
+          </div>
+          <div class="mb-4">
+            <label for="software" class="block text-gray-700 font-medium mb-2"
+              >Software (comma-separated)</label
+            >
+            <input
+              type="text"
+              id="software"
+              name="software"
+              class="border border-gray-400 p-2 w-full rounded-md"
+            />
+          </div>
+          <div class="mb-4">
+            <label for="references" class="block text-gray-700 font-medium mb-2"
+              >References</label
+            >
+            <input
+              type="text"
+              id="references"
+              name="references"
+              class="border border-gray-400 p-2 w-full rounded-md"
+            />
+          </div>
+        </form>
+        <div id="message"></div>
+        <button
+          onclick="saveAndRedirect()"
+          class="bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-md w-full"
+        >
+          Save CV
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function saveAndRedirect() {
+        // Get all the input elements
+        const inputs = document.querySelectorAll(
+          "#cv-form input, #cv-form textarea"
+        );
+
+        // Check if any input is empty
+        let isValid = true;
+        for (let i = 0; i < inputs.length; i++) {
+          if (inputs[i].value.trim() === "") {
+            isValid = false;
+            break;
+          }
+        }
+
+        if (!isValid) {
+          alert("Please fill in all the fields.");
+          return;
+        }
+
+        // If all fields are filled, save the data and redirect
+        const cvData = {
+          avatar: document.getElementById("avatar").value,
+          fullName: document.getElementById("full-name").value,
+          jobTitle: document.getElementById("job-title").value,
+          phone: document.getElementById("phone").value,
+          email: document.getElementById("email").value,
+          address: document.getElementById("address").value,
+          summary: document.getElementById("summary").value.split("\n"),
+          socialLinks: document.getElementById("social-links").value.split(","),
+          website: document.getElementById("website").value,
+          employmentHistory:
+            document.getElementById("employment-history").value,
+          details: document.getElementById("details").value,
+          skills: document.getElementById("skills").value.split(","),
+          languages: document.getElementById("languages").value.split(","),
+          education: document.getElementById("education").value,
+          certificates: document
+            .getElementById("certificates")
+            .value.split(","),
+          software: document.getElementById("software").value.split(","),
+          references: document.getElementById("references").value,
+        };
+
+        localStorage.setItem("cvData", JSON.stringify(cvData));
+
+        window.location.href = "/FE/ViewCV.html";
+      }
+    </script>
+  </body>
+</html>

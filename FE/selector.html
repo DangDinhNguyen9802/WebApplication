@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV Selector</title>
+    <link href="../css/HomePage.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background: #f6e9e9;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .cv-grid {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .cv-card {
+        width: 300px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+        cursor: pointer;
+      }
+
+      .cv-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .cv-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .cv-card h2 {
+        font-size: 18px;
+        margin: 10px 0;
+        color: #555;
+      }
+
+      .cv-card button {
+        margin: 10px 0;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        background: #f92121;
+        color: white;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .cv-card button:hover {
+        background: #0056b3;
+      }
+      /* Container cho header */
+      .header-bar {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px;
+        background-color: #f6e9e9;
+      }
+
+      /* Nút "Go to Your CV Stored" */
+      .go-to-cv {
+        padding: 10px 20px;
+        margin-top: 120px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+
+      /* Hiệu ứng hover */
+      .go-to-cv:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+      }
+
+      /* Mũi tên bên cạnh */
+      .arrow {
+        font-size: 16px;
+        color: white;
+        transition: margin-left 0.3s ease-in-out;
+      }
+
+      /* Hiệu ứng hover cho mũi tên */
+      .go-to-cv:hover .arrow {
+        margin-left: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="v1_465">
+      <div class="v1_466">
+        <div class="v1_470">
+          <span class="v1_471"
+            ><a href="./login.html" class="NoneUnderline TextColorBlack"
+              >Logout</a
+            ></span
+          >
+        </div>
+      </div>
+      <div class="v67_357">
+        <div class="v22_1013">
+          <div class="v67_355">
+            <div class="v10_208">
+              <div class="v9_2"></div>
+              <div class="v9_4"></div>
+              <div class="v9_3"></div>
+            </div>
+          </div>
+        </div>
+        <div class="v67_356">
+          <span class="v1_472">OnTop</span>
+        </div>
+      </div>
+    </div>
+    <div class="header-bar">
+      <button class="go-to-cv" onclick="window.location.href='CVstored.html'">
+        Go to Your CV Stored
+        <span class="arrow">&rarr;</span>
+      </button>
+    </div>
+
+    <div class="container">
+      <h1>Choose Your CV Template</h1>
+      <div class="cv-grid">
+        <!-- Impact CV -->
+        <div class="cv-card" onclick="redirectTo('ImpactCV.html')">
+          <img
+            src="https://www.cvtemplate.co.uk/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcv-template-impact.dfc42b6c.png&w=750&q=64"
+            alt="Impact CV"
+          />
+          <h2>Impact CV</h2>
+          <button>Use CV</button>
+        </div>
+
+        <!-- Basic CV -->
+        <div class="cv-card" onclick="redirectTo('BasicCV.html')">
+          <img
+            src="https://www.cvtemplate.co.uk/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcv-template-classic.9d1ec779.png&w=750&q=64"
+            alt="Basic CV"
+          />
+          <h2>Basic CV</h2>
+          <button>Use CV</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Redirect to the selected CV page
+      function redirectTo(page) {
+        window.location.href = "/FE/editCV.html";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>View CV</title>
+    <style>
+      .cv-container {
+        width: 700px; /* Adjust the width as needed */
+        font-family: "Arial", sans-serif; /* Choose your preferred font */
+      }
+      .cv-header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .cv-header img {
+        width: 100px; /* Adjust avatar size as needed */
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 10px auto;
+      }
+      .cv-section {
+        margin-bottom: 30px;
+      }
+      .cv-section-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+        border-bottom: 2px solid black; /* Add dashed separator */
+        padding-bottom: 5px;
+      }
+      .cv-section ul {
+        list-style-type: disc;
+        padding-left: 40px;
+      }
+      .cv-section li {
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center">
+      <div
+        class="bg-white p-8 rounded-lg shadow-md cv-container"
+        id="cv-container"
+      >
+        <div id="cv-content"></div>
+        <button
+          onclick="downloadCV()"
+          class="bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-md"
+        >
+          Download CV
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function getCVData() {
+        const cvData = JSON.parse(localStorage.getItem("cvData"));
+        return cvData;
+      }
+
+      function generateListItems(items) {
+        return items.map((item) => `<li>${item}</li>`).join("");
+      }
+
+      function displayCVData(cvData) {
+        const cvContent = document.getElementById("cv-content");
+        cvContent.innerHTML = `
+          <div class="cv-header">
+            <img src="${cvData.avatar}" alt="Avatar">
+            <h1 class="text-2xl font-bold">${cvData.fullName}</h1>
+            <h2 class="text-lg">${cvData.jobTitle}</h2>
+            <p>${cvData.phone}, ${cvData.email}</p>
+            <p>${cvData.address}</p>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Summary</h3>
+            <p>${cvData.summary} </p>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Social Links</h3>
+            <ul>
+              ${cvData.socialLinks.map((link) => `<li>${link}</li>`).join("")}
+            </ul>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Website</h3>
+            <a href="${cvData.website}" target="_blank">${cvData.website}</a>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Employment History</h3>
+            <p>${cvData.employmentHistory}</p>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Details</h3>
+            <p>${cvData.details}</p>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Skills</h3>
+            <ul>
+              ${cvData.skills.map((skill) => `<li>${skill}</li>`).join("")}
+            </ul>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Languages</h3>
+            <ul>
+              ${cvData.languages
+                .map((language) => `<li>${language}</li>`)
+                .join("")}
+            </ul>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Education</h3>
+            <p>${cvData.education}</p>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Certificates</h3>
+            <ul>
+              ${cvData.certificates.map((cert) => `<li>${cert}</li>`).join("")}
+            </ul>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Software</h3>
+            <ul>
+              ${cvData.software
+                .map((software) => `<li>${software}</li>`)
+                .join("")}
+            </ul>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">References</h3>
+            <p>${cvData.references}</p>
+          </div>
+        `;
+      }
+
+      function downloadCV() {
+        const cvData = getCVData();
+
+        
+
+        // Create a temporary element to hold the CV content
+        const tempElement = document.createElement("div");
+        tempElement.innerHTML = `
+
+                  <style>
+            .cv-container {
+              width: 700px; 
+              font-family: 'Arial', sans-serif; 
+            }
+            .cv-header {
+              text-align: center;
+              margin-bottom: 20px;
+            }
+            .cv-header img {
+              width: 100px; 
+              height: 100px;
+              border-radius: 50%;
+              object-fit: cover;
+              margin: 0 auto 10px auto;
+            }
+            .cv-section {
+              margin-bottom: 30px;
+            }
+            .cv-section-title {
+              font-weight: bold;
+              margin-bottom: 10px;
+              border-bottom: 2px solid black; 
+              padding-bottom: 5px;
+            }
+            .cv-section ul {
+              list-style-type: disc;
+              padding-left: 40px;
+            }
+          </style>
+
+          <div class="cv-header">
+            <img src="${cvData.avatar}" alt="Avatar">
+            <h1 class="text-2xl font-bold">${cvData.fullName}</h1>
+            <h2 class="text-lg">${cvData.jobTitle}</h2>
+            <p>${cvData.phone}, ${cvData.email}</p>
+            <p>${cvData.address}</p>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Summary</h3>
+            <p>${cvData.summary}</p>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Social Links</h3>
+            <ul>
+              ${cvData.socialLinks.map((link) => `<li>${link}</li>`).join("")}
+            </ul>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Website</h3>
+            <a href="${cvData.website}" target="_blank">${cvData.website}</a>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Employment History</h3>
+            <p>${cvData.employmentHistory}</p>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Details</h3>
+            <p>${cvData.details}</p>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Skills</h3>
+            <ul>
+              ${cvData.skills.map((skill) => `<li>${skill}</li>`).join("")}
+            </ul>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Languages</h3>
+            <ul>
+              ${cvData.languages
+                .map((language) => `<li>${language}</li>`)
+                .join("")}
+            </ul>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Education</h3>
+            <p>${cvData.education}</p>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Certificates</h3>
+            <ul>
+              ${cvData.certificates.map((cert) => `<li>${cert}</li>`).join("")}
+            </ul>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">Software</h3>
+            <ul>
+              ${cvData.software
+                .map((software) => `<li>${software}</li>`)
+                .join("")}
+            </ul>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">References</h3>
+            <p>${cvData.references}</p>
+          </div>`;
+
+        // Convert the HTML content to a Blob
+        const blob = new Blob([tempElement.innerHTML], { type: "text/html" });
+
+        // Create a download link and trigger the download
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "myCV.html";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      const cvData = getCVData();
+      displayCVData(cvData);
+    </script>
+  </body>
+</html>
