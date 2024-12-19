@@ -7,7 +7,7 @@
     <link href="../css/HomePage.css" rel="stylesheet" />
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', sans-serif;
             background: #F6E9E9;
             margin: 0;
             padding: 20px;
@@ -120,10 +120,7 @@
     <div class="v1_465">
         <div class="v1_466">    
             <div class="v1_470">
-                <span class="v1_471"><a href="./Login.html" class="NoneUnderline TextColorBlack">Log in</a></span>
-            </div>
-            <div class="v9_6">
-                <span class="v9_7"><a href="./Signup.html" class="NoneUnderline TextColorBlack">Sign up</a></span>
+                <span class="v1_471"><a href="./ChangeAccount.html" class="NoneUnderline TextColorBlack">Logout</a></span>
             </div>
         </div>
         <div class="v67_357">
@@ -137,7 +134,7 @@
                 </div>
             </div>
             <div class="v67_356">
-                <span class="v1_472">OnTop</span>
+                <span class="v1_472"><a href="./HomePageLogged.html" class="NoneUnderline TextColorBlack">OnTop</a></span>
             </div>
         </div>
     </div>
@@ -233,6 +230,18 @@ const renderFilteredCVs = (filteredCVs) => {
         cvContainer.appendChild(cvItem);
     });
 };
+const editCV = (index) => {
+            // Save the selected CV to localStorage and redirect to editor
+            localStorage.setItem('editCV', JSON.stringify(cvList[index]));
+            window.location.href = cvList[index].template;
+        };
+
+        const deleteCV = (index) => {
+            // Remove the CV from the list
+            cvList.splice(index, 1);
+            localStorage.setItem('userCVs', JSON.stringify(cvList));
+            renderCVs();
+        };
 
 document.getElementById("searchBar").addEventListener("input", searchCV);
 
