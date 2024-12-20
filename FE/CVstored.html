@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your CVs</title>
+    <link href="../css/HomePage.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F6E9E9;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            margin-top: 140px;
+            color: #333;
+        }
+
+        .cv-list {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .cv-item {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: left;
+        }
+
+        .cv-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .cv-header {
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        .cv-content {
+            padding: 15px;
+        }
+
+        .cv-content p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .cv-actions {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+        }
+
+        .cv-actions button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .edit-btn {
+            background: #F92121;
+            color: white;
+        }
+
+        .edit-btn:hover{
+            background: #F7E0E0;
+        }
+
+        .delete-btn {
+            background: #F92121;
+            color: white;
+        }
+
+        .delete-btn:hover{
+            background: #F7E0E0;
+        
+        }
+        .search-bar-container {
+            margin-top: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+}
+
+        #searchBar {
+           width: 300px;
+           padding: 10px;
+           font-size: 16px;
+           border: 1px solid #ddd;
+           border-radius: 5px;
+}
+
+    
+
+    </style>
+</head>
+<body>
+    <div class="v1_465">
+        <div class="v1_466">    
+            <div class="v1_470">
+                <span class="v1_471"><a href="./ChangeAccount.html" class="NoneUnderline TextColorBlack">Logout</a></span>
+            </div>
+        </div>
+        <div class="v67_357">
+            <div class="v22_1013">
+                <div class="v67_355">
+                    <div class="v10_208">
+                        <div class="v9_2"></div>
+                        <div class="v9_4"></div>
+                        <div class="v9_3"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="v67_356">
+                <span class="v1_472"><a href="./HomePageLogged.html" class="NoneUnderline TextColorBlack">OnTop</a></span>
+            </div>
+        </div>
+    </div>
+    <h1>Your Saved CVs</h1>
+    <div class="search-bar-container">
+        <input
+            type="text"
+            id="searchBar"
+            placeholder="Search CV by name or title..."
+            oninput="searchCV()"
+        />
+    </div>
+    
+    <div class="cv-list" id="cvList">
+        
+    </div>
+
+    <script>
+       
+       const cvList = JSON.parse(localStorage.getItem('userCVs')) || [];
+
+// Function to render the CVs
+const renderCVs = () => {
+    const cvContainer = document.getElementById('cvList');
+    cvContainer.innerHTML = ''; // Clear existing content
+
+    if (cvList.length === 0) {
+        cvContainer.innerHTML = '<p>No CVs saved yet.</p>';
+        return;
+    }
+
+    // Render each CV
+    cvList.forEach((cv, index) => {
+        const cvItem = document.createElement('div');
+        cvItem.className = 'cv-item';
+        cvItem.innerHTML = `
+            <div class="cv-header">${cv.title}</div>
+            <div class="cv-content">
+                <p><strong>Name:</strong> ${cv.name}</p>
+                <p><strong>Job Title:</strong> ${cv.jobTitle}</p>
+                <p><strong>Email:</strong> ${cv.email}</p>
+            </div>
+            <div class="cv-actions">
+                <button class="edit-btn" onclick="editCV(${index})">Edit</button>
+                <button class="delete-btn" onclick="deleteCV(${index})">Delete</button>
+            </div>
+        `;
+        cvContainer.appendChild(cvItem);
+    });
+};
+
+// Function to search CVs by name or job title
+const searchCV = () => {
+    const searchQuery = document.getElementById('searchBar').value.toLowerCase();
+
+    // Filter CVs based on search query
+    const filteredCVs = cvList.filter(cv => 
+        cv.title.toLowerCase().includes(searchQuery) || 
+        cv.name.toLowerCase().includes(searchQuery) ||
+        cv.jobTitle.toLowerCase().includes(searchQuery)
+    );
+
+    // Render filtered CVs
+    renderFilteredCVs(filteredCVs);
+};
+
+// Function to render filtered CVs (for search functionality)
+const renderFilteredCVs = (filteredCVs) => {
+    const cvContainer = document.getElementById('cvList');
+    cvContainer.innerHTML = ''; // Clear existing content
+
+    if (filteredCVs.length === 0) {
+        cvContainer.innerHTML = '<p>No matching CVs found.</p>';
+        return;
+    }
+
+    // Render each filtered CV
+    filteredCVs.forEach((cv, index) => {
+        const cvItem = document.createElement('div');
+        cvItem.className = 'cv-item';
+        cvItem.innerHTML = `
+            <div class="cv-header">${cv.title}</div>
+            <div class="cv-content">
+                <p><strong>Name:</strong> ${cv.name}</p>
+                <p><strong>Job Title:</strong> ${cv.jobTitle}</p>
+                <p><strong>Email:</strong> ${cv.email}</p>
+            </div>
+            <div class="cv-actions">
+                <button class="edit-btn" onclick="editCV(${index})">Edit</button>
+                <button class="delete-btn" onclick="deleteCV(${index})">Delete</button>
+            </div>
+        `;
+        cvContainer.appendChild(cvItem);
+    });
+};
+const editCV = (index) => {
+            // Save the selected CV to localStorage and redirect to editor
+            localStorage.setItem('editCV', JSON.stringify(cvList[index]));
+            window.location.href = cvList[index].template;
+        };
+
+        const deleteCV = (index) => {
+            // Remove the CV from the list
+            cvList.splice(index, 1);
+            localStorage.setItem('userCVs', JSON.stringify(cvList));
+            renderCVs();
+        };
+
+document.getElementById("searchBar").addEventListener("input", searchCV);
+
+renderCVs();
+    </script>
+</body>
+</html>
