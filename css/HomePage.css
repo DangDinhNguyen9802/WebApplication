@@ -86,9 +86,10 @@ body {
 
 /* Dropdown content */
 .dropdown {
-  margin-top: 50px;
-  margin-left: 1100px;
+  margin-top: 40px;
+  margin-left: 1150px;
   position: relative;
+  display: inline-block;
 }
 .dropdown-content {
   display: none;
